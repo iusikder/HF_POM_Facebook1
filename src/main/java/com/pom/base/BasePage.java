@@ -63,11 +63,23 @@ public class BasePage {
 		return menu;
 	}
 	
+	/*public static String getScreenshot(String screenshotName) throws IOException{
+		File sourceFile =((TakesScreenshot) app).getScreenshotAs(OutputType.FILE);
+		String imgPath = "./Reports/Screenshots" + screenshotName + ".png";
+		File path = new File(imgPath);
+		FileUtils.copyFile(sourceFile, path);	
+		return imgPath;
+	}*/
+	
 	//Taking Screenshot
 		public void takeScreenshot(){
 			Date d = new Date();
 			String screenshotFile = d.toString().replace(":", " ").replace(" ", "_")+".png";
-			String filePath=com.pom.util.Constants.REPORT_PATH+"screenshots//"+screenshotFile;
+		  //String imgPath = "./Reports/Screenshots" + screenshotName + ".png";//////
+			String filePath=com.pom.util.Constants.REPORT_PATH+"_screenshots//"+screenshotFile;
+			//String filePath ="./Reports/Screenshots"+"screenshots//"+ ".png";
+			
+			
 			//String filePath=com.pom.util.Constants.REPORT_PATH;
 			//Store Screenshot in the File
 			//TakeScreensot

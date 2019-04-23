@@ -56,6 +56,30 @@ public class BaseTest {
 			public void takeScreenshot(){
 				Date d = new Date();
 				String screenshotFile = d.toString().replace(":", " ").replace(" ", "_")+".png";
+			  //String imgPath = "./Reports/Screenshots" + screenshotName + ".png";//////
+				String filePath=com.pom.util.Constants.REPORT_PATH+"_screenshots//"+screenshotFile;
+				//String filePath ="./Reports/Screenshots"+"screenshots//"+ ".png";
+				
+				
+				//String filePath=com.pom.util.Constants.REPORT_PATH;
+				//Store Screenshot in the File
+				//TakeScreensot
+				File srcFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+				try{
+					//Get the Dynamic folder name here
+					FileUtils.copyFile(srcFile, new File(filePath));			
+				}catch(IOException e){
+					e.printStackTrace();
+				}
+				test.log(LogStatus.INFO, test.addScreenCapture(filePath));			
+			}
+		
+			
+	
+	//Taking Screenshot  Turned of temporarily
+/*			public void takeScreenshot(){
+				Date d = new Date();
+				String screenshotFile = d.toString().replace(":", " ").replace(" ", "_")+".png";
 				String filePath=com.pom.util.Constants.REPORT_PATH+"screenshots//"+screenshotFile;
 				//String filePath=com.pom.util.Constants.REPORT_PATH;
 				//Store Screenshot in the File
@@ -69,7 +93,7 @@ public class BaseTest {
 				}
 				test.log(LogStatus.INFO, test.addScreenCapture(filePath));			
 			}
-					
+			*/		
 			
 			public void reportFailure(String failureMessage){
 				test.log(LogStatus.FAIL, failureMessage);

@@ -6,6 +6,7 @@ package com.pom.util;
 import java.io.File;
 import java.util.Date;
 
+//import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.relevantcodes.extentreports.DisplayOrder;
 import com.relevantcodes.extentreports.ExtentReports;
 
@@ -17,6 +18,7 @@ public class ExtentManager {   //ReportConfig.xml holds the Report
 			Date d = new Date();
 		//	String fileName = d.toString().replace(":","_").replace(" ","_")+".html";  //Report will be generated depends on the time
 			//String reportPath =Constants.REPORT_PATH+fileName;
+			//String reportPath =(System.getProperty("user.dir") + "./Reports/GoogleApp_TestExecution.html");
 			String reportPath =Constants.REPORT_PATH; //I'm changing this because Report is not coming in Jenkins
 			extent = new ExtentReports(reportPath, true, DisplayOrder.NEWEST_FIRST);//Creates the Object of Extent Reports and give the Path where you want to generate the Report...
 			extent.loadConfig(new File(System.getProperty("user.dir")+"//ReportsConfig.xml"));
